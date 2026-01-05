@@ -14,3 +14,9 @@ Khoảng từ 3 đến 4 tháng
 - **Backend**: ExpressJS
 - **Database**: PostgreSQL
 - **Deployment**: Vercel, Render
+
+## Tài liệu
+
+- [Đặc tả chi tiết](./Docs/SPEC.md)
+- [Kế hoạch](./Docs/PLANNING.md)
+- [Cơ sở dư liệu](./Docs/DATABASE.md)
