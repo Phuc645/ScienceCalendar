@@ -2,23 +2,9 @@
 
 Cơ sở dữ liệu của dự án được thiết kế đơn giản để lưu trữ các "fact" khoa học và danh mục của chúng.
 
-## 1. Sơ đồ quan hệ thực thể (ERD)
+## Mô tả các bảng
 
 Mô hình dữ liệu bao gồm hai bảng chính: `FactCategories` và `Facts`.
-
-```
-
-|  FactCategories  |      |      Facts       |
-| ----------------- |     | ----------------- |
-| FactCategoryID(PK)|     | FactID (PK)      |
-| FactCategoryName |      | FactContent      |
-| CreatedAt        |      | FactCategoryID(FK)|
-| UpdatedAt        |      | CreatedAt        |
-| UpdatedAt        |
-
-```
-
-## 2. Mô tả các bảng
 
 ### Bảng `FactCategories`
 
@@ -42,7 +28,3 @@ Lưu trữ nội dung chi tiết của từng "fact" khoa học.
 | `FactCategoryID` | `INTEGER`     | Khóa ngoại liên kết đến `FactCategories`. | **Foreign Key** to `FactCategories.FactCategoryID` |
 | `CreatedAt`      | `TIMESTAMPTZ` | Thời gian tạo.                            | `DEFAULT NOW()`                                    |
 | `UpdatedAt`      | `TIMESTAMPTZ` | Thời gian cập nhật lần cuối.              | `DEFAULT NOW()`                                    |
-
-## 3. Quan hệ
-
-- **Một-Nhiều (One-to-Many):** Một `FactCategory` có thể có nhiều `Facts`. Mối quan hệ này được thể hiện qua khóa ngoại `FactCategoryID` trong bảng `Facts`.
