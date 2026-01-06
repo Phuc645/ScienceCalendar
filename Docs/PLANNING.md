@@ -1,44 +1,48 @@
-# Kế hoạch chi tiết
+# Kế hoạch phát triển dự án
 
-## Giai đoạn 1: Đặc tả chi tiết
+Dự án sẽ được phát triển theo 5 giai đoạn chính, đảm bảo quy trình làm việc có tổ chức và hiệu quả.
 
-- **Thời gian dự kiến**: 3 ngày
-- **Công việc cần làm**: Viết đặc tả chi tiết cho README, cơ sở dữ liệu, kế hoạch chi tiết và đặc tả
+## Giai đoạn 1: Phân tích và Đặc tả
 
-## Giai đoạn 2: Thiết kế UI/UX và cơ sở dữ liệu
+*   **Mục tiêu:** Hoàn thiện các tài liệu nền tảng cho dự án.
+*   **Công việc chính:**
+    *   Viết file `README.md` giới thiệu tổng quan dự án.
+    *   Xây dựng đặc tả chức năng chi tiết (`SPEC.md`).
+    *   Thiết kế cấu trúc cơ sở dữ liệu (`DATABASE.md`).
+    *   Vạch ra kế hoạch phát triển tổng thể (`PLANNING.md`).
 
-- **Thời gian dự kiến**: 3 ngày
-- **Công việc cần làm**:
+## Giai đoạn 2: Thiết kế
 
-  - Thiết kế wireframe cho web bằng Excalidraw
-  - Thiết kế UI/UX và test user flow bằng Figma
-  - Thiểt kế sơ đồ database bằng draw.io
+*   **Mục tiêu:** Xây dựng bản thiết kế cho giao diện người dùng (UI), trải nghiệm người dùng (UX) và kiến trúc dữ liệu.
+*   **Công việc chính:**
+    *   Thiết kế wireframe tổng thể với Excalidraw.
+    *   Thiết kế UI/UX chi tiết và xây dựng user flow trên Figma.
+    *   Vẽ sơ đồ quan hệ thực thể (ERD) cho cơ sở dữ liệu bằng draw.io hoặc công cụ tương tự.
 
-## Giai đoạn 3: Lập trình frontend
+## Giai đoạn 3: Phát triển Frontend
 
-- **Thời gian dự kiến**: 6 ngày
-- **Công việc cần làm**:
+*   **Mục tiêu:** Xây dựng giao diện người dùng dựa trên bản thiết kế.
+*   **Công việc chính:**
+    *   Phát triển các component và giao diện chính của ứng dụng bằng React.
+    *   Đảm bảo thiết kế có đáp ứng (Responsive) trên nhiều thiết bị (desktop, tablet, mobile).
 
-  - Lập trình các trang cơ bản trong web bằng React
-  - Kiểm tra tính Responsive cho tablet và điện thoại
+## Giai đoạn 4: Phát triển Backend và Tích hợp
 
-## Giai đoạn 4: Lập trình backend và database
+*   **Mục tiêu:** Xây dựng server, API và kết nối với cơ sở dữ liệu.
+*   **Công việc chính:**
+    *   Xây dựng các RESTful API endpoints bằng Express.js.
+    *   Thiết lập và cấu hình cơ sở dữ liệu PostgreSQL.
+    *   Tích hợp Prisma ORM để tương tác với cơ sở dữ liệu.
+    *   Kết nối Frontend với Backend, sử dụng Axios để thực hiện các API call.
 
-- **Thời gian dự kiến**: 12 ngày
-- **Công việc cần làm**:
+## Giai đoạn 5: Triển khai (Deployment)
 
-  - Thiết kế các API bằng ExpressJS
-  - Thiết kế database bằng PostgreSQL
-  - Đổ database vào backend bằng Prisma
-  - Kết nối frontend với backend bằng Axios
+*   **Mục tiêu:** Đưa ứng dụng vào hoạt động trên môi trường production.
+*   **Công việc chính:**
+    *   Triển khai Frontend (React) lên nền tảng Vercel.
+    *   Triển khai Backend (Express.js) và Database (PostgreSQL) lên nền tảng Render.
+    *   Kiểm tra và đảm bảo ứng dụng hoạt động ổn định.
 
-## Giai đoạn 5: Deploy
+## Mục tiêu cuối cùng
 
-- **Thời gian dự kiến**: 6 ngày
-- **Công việc cần làm**: Sử dụng Vercel và Render để đưa web lên Production
-
-## Sản phẩm đầu ra:
-
-- Một web chạy mượt mà và đúng logic trong giai đoạn production
-- Một báo cáo về dự án
-- Slide thuyết trình về dự án
+Hoàn thành và triển khai thành công một ứng dụng web full-stack hoạt động mượt mà, đúng logic, có thể truy cập công khai.
