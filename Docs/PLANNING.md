@@ -24,6 +24,7 @@ Dự án sẽ được phát triển theo 5 giai đoạn chính, đảm bảo qu
 *   **Mục tiêu:** Xây dựng giao diện người dùng dựa trên bản thiết kế.
 *   **Công việc chính:**
     *   Phát triển các component và giao diện chính của ứng dụng bằng React.
+    *   Tích hợp logic xử lý và hiển thị sự kiện (bao gồm cả lịch âm) trên giao diện.
     *   Đảm bảo thiết kế có đáp ứng (Responsive) trên nhiều thiết bị (desktop, tablet, mobile).
 
 ## Giai đoạn 4: Phát triển Backend và Tích hợp
@@ -32,6 +33,8 @@ Dự án sẽ được phát triển theo 5 giai đoạn chính, đảm bảo qu
 *   **Công việc chính:**
     *   Xây dựng các RESTful API endpoints bằng Express.js.
     *   Thiết lập và cấu hình cơ sở dữ liệu PostgreSQL.
+    *   Thiết kế và tạo bảng `Events` trong CSDL.
+    *   Xây dựng API endpoint để truy vấn sự kiện.
     *   Tích hợp Prisma ORM để tương tác với cơ sở dữ liệu.
     *   Kết nối Frontend với Backend, sử dụng Axios để thực hiện các API call.
 

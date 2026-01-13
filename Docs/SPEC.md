@@ -28,11 +28,21 @@
   - **Hình nền:** Background của trang sẽ được thay bằng một hình ảnh lịch sử liên quan đến sự kiện của ngày đó.
   - **Nội dung "Fact":** "Fact" khoa học sẽ được thay thế bằng thông tin mô tả về ý nghĩa của ngày lễ đó.
 - **Danh sách các ngày đặc biệt:**
-  - Ngày thành lập Đảng Cộng sản Việt Nam (03/02)
-  - Ngày Giải phóng miền Nam, thống nhất đất nước (30/04)
-  - Ngày Chiến thắng Điện Biên Phủ (07/05)
-  - Ngày sinh Chủ tịch Hồ Chí Minh (19/05)
-  - Ngày Bác Hồ ra đi tìm đường cứu nước (05/06)
-  - Ngày Cách mạng tháng Tám thành công (19/08)
-  - Ngày Quốc khánh (02/09)
-  - Ngày thành lập Quân đội nhân dân Việt Nam (22/12)
+
+  - **Sự kiện theo Lịch Dương:**
+
+    - Tết đương lịch (01/01)
+    - Ngày thành lập Đảng Cộng sản Việt Nam (03/02)
+    - Ngày Giải phóng miền Nam, thống nhất đất nước (30/04)
+    - Ngày Chiến thắng Điện Biên Phủ (07/05)
+    - Ngày sinh Chủ tịch Hồ Chí Minh (19/05)
+    - Ngày Bác Hồ ra đi tìm đường cứu nước (05/06)
+    - Ngày Cách mạng tháng Tám thành công (19/08)
+    - Ngày Quốc khánh (02/09)
+    - Ngày thành lập Quân đội nhân dân Việt Nam (22/12)
+
+  - **Sự kiện theo Lịch Âm:**
+    - Giao thừa (29 hoặc 30 tháng Chạp Âm Lịch)
+    - Tết Nguyên Đán (Mùng 1, tháng 1 Âm lịch)
+    - Giỗ Tổ Hùng Vương (Mùng 10, tháng 3 Âm lịch)
+    - Tết Trung Thu (Rằm, tháng 8 Âm lịch)
