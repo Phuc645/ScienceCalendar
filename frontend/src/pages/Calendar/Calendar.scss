@@ -1,1 +1,68 @@
 @use '../../styles/variables' as *;
+
+.calendar-container {
+  font-family: 'Roboto', sans-serif;
+  color: $text-color;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 20px;
+  background: $math-background;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.calendar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+
+  p {
+    margin: 0;
+    line-height: 1.2;
+  }
+}
+
+.fact {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  text-align: center;
+}
+
+
+.month-year {
+    font-size: $month-year-text-size;
+}
+
+.day {
+    font-size: $day-text-size;
+}
+.lunar-calendar {
+    font-size: $lunar-calendar-text-size;
+}
+.fact {
+    font-size: $fact-text-size;
+}
+
+@media (max-width: 768px) {
+  .calendar-container {
+    padding: 10px;
+  }
+    .month-year {
+        font-size: 2rem;
+    }
+    .day {
+        font-size: 4rem;
+    }
+    .lunar-calendar {
+        font-size: 2rem;
+    }
+    .fact {
+        font-size: 1.5rem;
+    }
+}
