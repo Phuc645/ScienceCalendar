@@ -9,9 +9,22 @@
   justify-content: center;
   height: 100vh;
   padding: 20px;
-  background: $math-background;
   box-sizing: border-box;
   position: relative;
+  transition: background 0.5s ease; // Smooth transition when changing days
+
+  &.math {
+    background: $math-background;
+  }
+  &.physics {
+    background: $physics-background;
+  }
+  &.chemistry {
+    background: $chemistry-background;
+  }
+  &.biology {
+    background: $biology-background;
+  }
 }
 
 .calendar {
@@ -57,10 +70,10 @@
         font-size: 2rem;
     }
     .day {
-        font-size: 4rem;
+        font-size: 6rem;
     }
     .lunar-calendar {
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
     .fact {
         font-size: 1.5rem;

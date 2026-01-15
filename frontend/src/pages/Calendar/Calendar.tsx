@@ -1,12 +1,33 @@
 import "./Calendar.scss";
+import { LunarCalendar } from "@dqcai/vn-lunar";
 
 export default function Calendar() {
+  const today = LunarCalendar.today();
+  const { day, month, year } = today.solarDate;
+
+  // Logic to determine the background based on the day
+  const getSubjectClass = (day: number) => {
+    switch (day % 4) {
+      case 1:
+        return 'math';
+      case 2:
+        return 'physics';
+      case 3:
+        return 'chemistry';
+      case 0:
+      default:
+        return 'biology';
+    }
+  };
+
+  const subjectClass = getSubjectClass(day);
+
   return (
-    <div className="calendar-container">
+    <div className={`calendar-container ${subjectClass}`}>
       <div className="calendar">
-        <p className="month-year">Tháng 1 năm 2026</p>
-        <p className="day">1</p>
-        <p className="lunar-calendar">Âm lịch: 13 tháng 11</p>
+        <p className="month-year">Tháng {month} năm {year}</p>
+        <p className="day">{day}</p>
+        <p className="lunar-calendar">Âm lịch: {today.formatLunar()} ({today.yearCanChi})</p>
       </div>
       <div className="fact">
         <p className="fact-content">Nguyên tử chỉ là không gian trống</p>
