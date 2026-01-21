@@ -25,10 +25,12 @@ export default function Calendar() {
   return (
     <div className={`calendar-container ${subjectClass}`}>
       <div className="calendar">
-        <p className="month-year">
+        <p className="month-year" data-testid="month-year">
           Tháng {month} năm {year}
         </p>
-        <p className="day">{day}</p>
+        <p className="day" data-testid="day">
+          {day}
+        </p>
         <p className="lunar-calendar">
           Âm lịch: {today.formatLunar()} ({today.yearCanChi})
         </p>
