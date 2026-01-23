@@ -1,20 +1,6 @@
 import "./Calendar.scss";
 import { LunarCalendar } from "@dqcai/vn-lunar";
-
-// Logic to determine the background based on the day
-const getSubjectClass = (day: number) => {
-  switch (day % 4) {
-    case 1:
-      return "math";
-    case 2:
-      return "physics";
-    case 3:
-      return "chemistry";
-    case 0:
-    default:
-      return "biology";
-  }
-};
+import { getSubjectClass } from "./Calendar.utils";
 
 export default function Calendar() {
   const today = LunarCalendar.today();
