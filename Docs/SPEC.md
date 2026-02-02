@@ -6,7 +6,7 @@ ScienceCalendar là một ứng dụng lịch trên điện thoại. Ngoài vi�
 - Hoá Học
 - Sinh Học
 - Thiên Văn Học
-- Khoa học môi trường
+- Toán Học
 - Khoa học máy tính
 
 Nếu người dùng bấm vào fact đó thì thông tin chi tiết về fact đó sẽ hiện ra
