@@ -12,6 +12,6 @@ Nếu người dùng bấm vào fact đó thì thông tin chi tiết về fact �
 
 ## Tài liệu bổ sung
 
-- [Đặc tả chí tiết](./Docs/PLANNING.md)
+- [Đặc tả chi tiết](./Docs/SPEC.md)
 - [Cơ sở dữ liệu](./Docs/DATABASE.md)
 - [Kế hoạch dự kiến](./Docs/PLANNING.md)

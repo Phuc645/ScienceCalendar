@@ -16,7 +16,6 @@ Lập trình frontend với React Native Expo
 
 Thiết lập backend với Supabase và kết nối với frontend
 
-
 ## Giai đoạn 5
 
 Kiểm tra ứng dụng và triển khai lên Appstore và Playstore
