@@ -7,7 +7,7 @@ Nếu người dùng bấm vào fact đó thì thông tin chi tiết về fact �
 
 ## Công nghệ sử dụng
 
-- Frontend: React Native Expo
+- Frontend: Kotlin Jetpack Compose
 - Backend và Database: Supabase
 
 ## Tài liệu bổ sung

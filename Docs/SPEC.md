@@ -5,10 +5,10 @@ ScienceCalendar là một ứng dụng lịch trên điện thoại. Ngoài vi�
 - Vật Lý
 - Hoá Học
 - Sinh Học
-- Thiên Văn Học
 - Toán Học
-- Khoa học máy tính
 
-Nếu người dùng bấm vào fact đó thì thông tin chi tiết về fact đó sẽ hiện ra
+Nếu người dùng bấm vào fact đó thì thông tin chi tiết về fact đó sẽ hiện ra.
 
-Ngoài ra người dùng có thể thay đổi giữa hình nền sáng và hình nền tối
+Người dùng có thể thay đổi giữa nền sáng và nền tối:
+
+- Ở nền sáng, nền sẽ thay đổi tuỳ theo chủ đề mà fact đưa ra, cụ thể là hình nền màu xanh dương với Vật Lý, màu hồng với Hoá Học, màu xanh là cây với Sinh Học và màu cam với Toán Học
