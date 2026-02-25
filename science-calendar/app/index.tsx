@@ -1,4 +1,5 @@
 import { StyleSheet, Text, View } from "react-native";
+import { Link } from "expo-router";
 
 const currentDate: Date = new Date();
 
@@ -10,9 +11,9 @@ export default function Index() {
           Tháng {currentDate.getMonth() + 1} năm {currentDate.getFullYear()}
         </Text>
         <Text style={styles.dayText}>{currentDate.getDate()}</Text>
-        <Text style={styles.factText}>
-          Nguyên tử chỉ là các không gian trống
-        </Text>
+        <Link href="/fact" style={styles.factText}>
+          <Text>Nguyên tử chỉ là các không gian trống</Text>
+        </Link>
       </View>
     </>
   );
