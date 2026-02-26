@@ -7,12 +7,12 @@ const currentDate: Date = new Date();
 export default function Index() {
   return (
     <View style={styles.container}>
-      <Icon
-        name="account-circle"
-        size={30}
-        color="#fff"
+      <Link
+        href="/account"
         style={{ position: "absolute", top: 50, right: 20 }}
-      />
+      >
+        <Icon name="account-circle" size={30} color="#fff" />
+      </Link>
       <Text style={styles.monthYearText}>
         Tháng {currentDate.getMonth() + 1} năm {currentDate.getFullYear()}
       </Text>
