@@ -7,7 +7,12 @@ export default function Account() {
       <Text style={styles.titleText}>
         Hãy đăng nhập để có trải nghiệm tốt nhất
       </Text>
-      <Button title="Đăng nhập" variant="contained" color="#fff" />
+      <Button
+        title="Đăng nhập"
+        variant="contained"
+        color="#fff"
+        tintColor="#000"
+      />
     </View>
   );
 }
