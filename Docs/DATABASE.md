@@ -19,9 +19,7 @@
 - email
 - AvatarURL
 
-
 ## Bảng SavedFacts
 
 - UserID
 - FactID
-
