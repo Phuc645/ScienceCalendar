@@ -11,3 +11,17 @@
 
 - FactCategoriesID
 - FactCategoriesName
+
+## Bảng Users
+
+- UserID
+- Username
+- email
+- AvatarURL
+
+
+## Bảng SavedFacts
+
+- UserID
+- FactID
+
