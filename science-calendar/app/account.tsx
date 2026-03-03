@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View } from "react-native";
 import { Button } from "@react-native-material/core";
+import { router } from "expo-router";
 
 export default function Account() {
   return (
@@ -12,6 +13,7 @@ export default function Account() {
         variant="contained"
         color="#fff"
         tintColor="#000"
+        onPress={() => router.push("/login")}
       />
     </View>
   );
