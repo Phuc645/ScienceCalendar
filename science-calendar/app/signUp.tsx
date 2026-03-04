@@ -17,6 +17,11 @@ export default function Login() {
       </View>
 
       <View style={styles.field}>
+        <Text style={styles.inputTitle}>Email</Text>
+        <TextInput style={styles.input} inputMode="email" />
+      </View>
+
+      <View style={styles.field}>
         <Text style={styles.inputTitle}>Mật khẩu</Text>
         <TextInput
           style={styles.input}
@@ -37,7 +42,7 @@ export default function Login() {
         }}
       />
       <Button
-        title="Chưa có tài khoản? Đăng ký"
+        title="Đã có tài khoản? Đăng nhập"
         variant="text"
         color="#fff"
         tintColor="#000"
@@ -47,7 +52,7 @@ export default function Login() {
           position: "absolute",
           bottom: 60,
         }}
-        onPress={() => router.push("/signUp")}
+        onPress={() => router.push("/login")}
       />
     </View>
   );
