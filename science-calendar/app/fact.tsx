@@ -9,7 +9,7 @@ export default function Fact() {
         <Icon name="close" size={24} color="#fff" />
       </Link>
       <Icon
-        name="bookmark"
+        name="bookmark-outline"
         size={24}
         color="#fff"
         style={{ position: "absolute", top: 50, right: 20 }}
