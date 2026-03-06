@@ -32,10 +32,12 @@ export default function Account() {
         <Icon name="account-circle" size={150} color="#fff" />
         <Text style={styles.userNametext}>Ph645</Text>
         <View style={styles.featureContainer}>
-          <View style={styles.featureSubContainer}>
-            <Icon name="bookmark" size={24} color="#fff" />
-            <Text style={styles.featureText}>Bài viết đã lưu</Text>
-          </View>
+          <Link href="/bookmark" style={{ flex: 1 }}>
+            <View style={styles.featureSubContainer}>
+              <Icon name="bookmark" size={24} color="#fff" />
+              <Text style={styles.featureText}>Bài viết đã lưu</Text>
+            </View>
+          </Link>
           <Svg
             height={20}
             width={"100%"}
