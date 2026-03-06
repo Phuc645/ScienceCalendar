@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, TextInput } from "react-native";
 import Icon from "@expo/vector-icons/MaterialCommunityIcons";
-import { Link, router } from "expo-router";
+import { router } from "expo-router";
 import { Button } from "@react-native-material/core";
 
 export default function Edit() {
