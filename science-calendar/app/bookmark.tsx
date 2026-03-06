@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View } from "react-native";
-import { Card } from "react-native-paper";
+import { Card, Button } from "react-native-paper";
 import Icon from "@expo/vector-icons/MaterialCommunityIcons";
+import { Link } from "expo-router";
 
 export default function Bookmark() {
   return (
@@ -40,6 +41,9 @@ export default function Bookmark() {
           </View>
         </Card>
       </View>
+      <Link href="/account" style={{ position: "absolute", bottom: 200 }}>
+        <Button textColor="#fff">Quay lại</Button>
+      </Link>
     </View>
   );
 }
