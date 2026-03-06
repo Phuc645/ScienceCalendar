@@ -52,10 +52,12 @@ export default function Account() {
               strokeWidth="2"
             />
           </Svg>
-          <View style={styles.featureSubContainer}>
-            <Icon name="pencil-outline" size={24} color="#fff" />
-            <Text style={styles.featureText}>Chỉnh sửa thông tin</Text>
-          </View>
+          <Link href="/edit" style={{ flex: 1 }}>
+            <View style={styles.featureSubContainer}>
+              <Icon name="pencil-outline" size={24} color="#fff" />
+              <Text style={styles.featureText}>Chỉnh sửa thông tin</Text>
+            </View>
+          </Link>
         </View>
         <Button
           title="Đăng xuất"
