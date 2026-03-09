@@ -1,9 +1,33 @@
-import { StyleSheet, Text, View, TextInput } from "react-native";
+import { StyleSheet, Text, View, TextInput, Alert } from "react-native";
 import { Button } from "@react-native-material/core";
 import Icon from "@expo/vector-icons/MaterialCommunityIcons";
 import { Link, router } from "expo-router";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { useState } from "react";
+import { auth } from "../firebaseConfig";
 
 export default function Login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const login = async () => {
+    if (!email.trim() || !password.trim()) {
+      Alert.alert("Thiếu thông tin", "Vui lòng nhập email và mật khẩu.");
+      return;
+    }
+
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      // Đăng nhập thành công
+      Alert.alert("Thành công", "Đăng nhập thành công!");
+      router.push("/account");
+    } catch (error: any) {
+      Alert.alert(
+        "Lỗi đăng nhập",
+        error.message ?? "Đã xảy ra lỗi, vui lòng thử lại.",
+      );
+    }
+  };
+
   return (
     <View style={styles.container}>
       <Link href="/account" style={{ position: "absolute", top: 50, left: 20 }}>
@@ -12,8 +36,13 @@ export default function Login() {
       <Text style={styles.titleText}>Đăng nhập</Text>
 
       <View style={styles.field}>
-        <Text style={styles.inputTitle}>Tên người dùng</Text>
-        <TextInput style={styles.input} inputMode="text" />
+        <Text style={styles.inputTitle}>Email</Text>
+        <TextInput
+          style={styles.input}
+          inputMode="email"
+          value={email}
+          onChangeText={setEmail}
+        />
       </View>
 
       <View style={styles.field}>
@@ -22,6 +51,8 @@ export default function Login() {
           style={styles.input}
           inputMode="text"
           secureTextEntry={true}
+          value={password}
+          onChangeText={setPassword}
         />
       </View>
       <Button
@@ -35,6 +66,7 @@ export default function Login() {
           position: "absolute",
           bottom: 120,
         }}
+        onPress={login}
       />
       <Button
         title="Chưa có tài khoản? Đăng ký"

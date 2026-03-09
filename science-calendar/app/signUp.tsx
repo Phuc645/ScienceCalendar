@@ -1,24 +1,63 @@
-import { StyleSheet, Text, View, TextInput } from "react-native";
+import { StyleSheet, Text, View, TextInput, Alert } from "react-native";
 import { Button } from "@react-native-material/core";
 import Icon from "@expo/vector-icons/MaterialCommunityIcons";
 import { Link, router } from "expo-router";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { useState } from "react";
+import { auth } from "../firebaseConfig";
 
 export default function Login() {
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const signUp = async () => {
+    if (!username.trim() || !email.trim() || !password.trim()) {
+      Alert.alert("Thiếu thông tin", "Vui lòng nhập tên người dùng, email và mật khẩu.");
+      return;
+    }
+
+    try {
+      await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      // Đăng ký thành công
+      Alert.alert("Thành công", "Tạo tài khoản thành công!");
+      router.push("/account");
+    } catch (error: any) {
+      Alert.alert("Lỗi đăng ký", error.message ?? "Đã xảy ra lỗi, vui lòng thử lại.");
+    }
+  };
+
   return (
     <View style={styles.container}>
       <Link href="/account" style={{ position: "absolute", top: 50, left: 20 }}>
         <Icon name="close" size={24} color="#fff" />
       </Link>
-      <Text style={styles.titleText}>Đăng nhập</Text>
+      <Text style={styles.titleText}>Đăng ký</Text>
 
       <View style={styles.field}>
         <Text style={styles.inputTitle}>Tên người dùng</Text>
-        <TextInput style={styles.input} inputMode="text" />
+        <TextInput
+          style={styles.input}
+          inputMode="text"
+          value={username}
+          onChangeText={setUsername}
+        />
       </View>
 
       <View style={styles.field}>
         <Text style={styles.inputTitle}>Email</Text>
-        <TextInput style={styles.input} inputMode="email" />
+        <TextInput
+          style={styles.input}
+          inputMode="email"
+          autoCapitalize="none"
+          keyboardType="email-address"
+          value={email}
+          onChangeText={setEmail}
+        />
       </View>
 
       <View style={styles.field}>
@@ -27,10 +66,12 @@ export default function Login() {
           style={styles.input}
           inputMode="text"
           secureTextEntry={true}
+          value={password}
+          onChangeText={setPassword}
         />
       </View>
       <Button
-        title="Đăng nhập"
+        title="Đăng ký"
         variant="contained"
         color="#fff"
         tintColor="#000"
@@ -40,6 +81,7 @@ export default function Login() {
           position: "absolute",
           bottom: 120,
         }}
+        onPress={signUp}
       />
       <Button
         title="Đã có tài khoản? Đăng nhập"
