@@ -14,8 +14,8 @@ Lập trình frontend với React Native Expo
 
 ## Giai đoạn 4
 
-Thiết lập backend với Supabase và kết nối với frontend
+Thiết lập backend với Firebase và kết nối với frontend
 
 ## Giai đoạn 5
 
-Kiểm tra ứng dụng và triển khai lên Appstore và Playstore
+Kiểm tra ứng dụng và đóng gói thành file APK
