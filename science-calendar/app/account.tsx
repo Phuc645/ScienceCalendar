@@ -1,13 +1,43 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, ActivityIndicator } from "react-native";
 import Svg, { Line } from "react-native-svg";
 import { Button } from "@react-native-material/core";
 import { Link, router } from "expo-router";
 import Icon from "@expo/vector-icons/MaterialCommunityIcons";
-
-const isSignedUp: boolean = true;
+import { auth } from "../firebaseConfig";
+import { onAuthStateChanged, signOut, User } from "firebase/auth";
+import { useEffect, useState } from "react";
 
 export default function Account() {
-  if (!isSignedUp) {
+  const [user, setUser] = useState<User | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+      setLoading(false);
+    });
+
+    return unsubscribe;
+  }, []);
+
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      router.push("/login");
+    } catch (error) {
+      console.error("Error signing out:", error);
+    }
+  };
+
+  if (loading) {
+    return (
+      <View style={styles.container}>
+        <ActivityIndicator size="large" color="#fff" />
+      </View>
+    );
+  }
+
+  if (!user) {
     return (
       <View style={styles.container}>
         <Text style={styles.titleText}>
@@ -30,7 +60,9 @@ export default function Account() {
         </Link>
 
         <Icon name="account-circle" size={150} color="#fff" />
-        <Text style={styles.userNametext}>Ph645</Text>
+        <Text style={styles.userNametext}>
+          {user.email ?? "Tài khoản"}
+        </Text>
         <View style={styles.featureContainer}>
           <Link href="/bookmark" style={{ flex: 1 }}>
             <View style={styles.featureSubContainer}>
@@ -64,7 +96,7 @@ export default function Account() {
           variant="contained"
           color="#3D3C3C"
           tintColor="#EB1414"
-          onPress={() => router.push("/login")}
+          onPress={handleLogout}
           style={{ position: "absolute", bottom: 200, width: "50%" }}
         />
         <Text
