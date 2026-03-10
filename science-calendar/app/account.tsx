@@ -60,9 +60,7 @@ export default function Account() {
         </Link>
 
         <Icon name="account-circle" size={150} color="#fff" />
-        <Text style={styles.userNametext}>
-          {user.email ?? "Tài khoản"}
-        </Text>
+        <Text style={styles.userNametext}>{user.email ?? "Tài khoản"}</Text>
         <View style={styles.featureContainer}>
           <Link href="/bookmark" style={{ flex: 1 }}>
             <View style={styles.featureSubContainer}>

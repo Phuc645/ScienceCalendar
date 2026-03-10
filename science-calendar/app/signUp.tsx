@@ -4,7 +4,8 @@ import Icon from "@expo/vector-icons/MaterialCommunityIcons";
 import { Link, router } from "expo-router";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
-import { auth } from "../firebaseConfig";
+import { auth, db } from "../firebaseConfig";
+import { doc, setDoc } from "firebase/firestore";
 
 export default function Login() {
   const [username, setUsername] = useState("");
@@ -13,21 +14,37 @@ export default function Login() {
 
   const signUp = async () => {
     if (!username.trim() || !email.trim() || !password.trim()) {
-      Alert.alert("Thiếu thông tin", "Vui lòng nhập tên người dùng, email và mật khẩu.");
+      Alert.alert(
+        "Thiếu thông tin",
+        "Vui lòng nhập tên người dùng, email và mật khẩu.",
+      );
       return;
     }
 
     try {
-      await createUserWithEmailAndPassword(
+      const userCredential = await createUserWithEmailAndPassword(
         auth,
         email,
-        password
+        password,
       );
+
+      const user = userCredential.user;
+
+      await setDoc(doc(db, "users", user.uid), {
+        username,
+        email,
+        avatarURL: "",
+        savedFacts: [],
+      });
+
       // Đăng ký thành công
       Alert.alert("Thành công", "Tạo tài khoản thành công!");
       router.push("/account");
     } catch (error: any) {
-      Alert.alert("Lỗi đăng ký", error.message ?? "Đã xảy ra lỗi, vui lòng thử lại.");
+      Alert.alert(
+        "Lỗi đăng ký",
+        error.message ?? "Đã xảy ra lỗi, vui lòng thử lại.",
+      );
     }
   };
 

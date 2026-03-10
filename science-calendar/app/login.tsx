@@ -4,7 +4,8 @@ import Icon from "@expo/vector-icons/MaterialCommunityIcons";
 import { Link, router } from "expo-router";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
-import { auth } from "../firebaseConfig";
+import { auth, db } from "../firebaseConfig";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -16,7 +17,25 @@ export default function Login() {
     }
 
     try {
-      await signInWithEmailAndPassword(auth, email, password);
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password,
+      );
+      const user = userCredential.user;
+
+      const userDocRef = doc(db, "users", user.uid);
+      const userDoc = await getDoc(userDocRef);
+
+      if (!userDoc.exists()) {
+        await setDoc(userDocRef, {
+          username: user.email?.split("@")[0],
+          email: user.email,
+          avatarURL: "",
+          savedFacts: [],
+        });
+      }
+
       // Đăng nhập thành công
       Alert.alert("Thành công", "Đăng nhập thành công!");
       router.push("/account");
