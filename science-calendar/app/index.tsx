@@ -1,10 +1,70 @@
-import { StyleSheet, Text, View } from "react-native";
-import { Link } from "expo-router";
+import { useEffect, useState } from "react";
+import { StyleSheet, Text, View, ActivityIndicator } from "react-native";
+import { Link, router } from "expo-router";
 import Icon from "@expo/vector-icons/MaterialCommunityIcons";
+import { db } from "../firebaseConfig";
+import { collection, query, where, limit, getDocs } from "firebase/firestore";
+
+type Fact = {
+  id: string;
+  title: string;
+  content: string;
+  categoryID: string;
+};
 
 const currentDate: Date = new Date();
 
+const getTodayCategoryId = () => {
+  const mod = currentDate.getDate() % 4;
+
+  if (mod === 1) return "physics";
+  if (mod === 2) return "chemistry";
+  if (mod === 3) return "biology";
+  return "math";
+};
+
 export default function Index() {
+  const [fact, setFact] = useState<Fact | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const loadFact = async () => {
+      try {
+        const categoryID = getTodayCategoryId();
+        const q = query(
+          collection(db, "facts"),
+          where("categoryID", "==", categoryID),
+          limit(1),
+        );
+        const snapshot = await getDocs(q);
+        if (!snapshot.empty) {
+          const docSnap = snapshot.docs[0];
+          setFact({ id: docSnap.id, ...(docSnap.data() as any) });
+        } else {
+          setFact(null);
+        }
+      } catch (e) {
+        console.error("Error loading fact", e);
+        setFact(null);
+      } finally {
+        setLoading(false);
+      }
+    };
+    loadFact();
+  }, []);
+
+  const handleOpenFact = () => {
+    if (!fact) return;
+    router.push({
+      pathname: "/fact",
+      params: {
+        factId: fact.id,
+        title: fact.title,
+        content: fact.content,
+      },
+    });
+  };
+
   return (
     <View style={styles.container}>
       <Link
@@ -17,9 +77,19 @@ export default function Index() {
         Tháng {currentDate.getMonth() + 1} năm {currentDate.getFullYear()}
       </Text>
       <Text style={styles.dayText}>{currentDate.getDate()}</Text>
-      <Link href="/fact" style={styles.factText}>
-        <Text>Nguyên tử chỉ là các không gian trống</Text>
-      </Link>
+
+      {loading ? (
+        <ActivityIndicator
+          color="#fff"
+          style={{ position: "absolute", bottom: 80 }}
+        />
+      ) : fact ? (
+        <Text style={styles.factText} onPress={handleOpenFact}>
+          {fact.title}
+        </Text>
+      ) : (
+        <Text style={styles.factText}>Chưa có fact cho hôm nay</Text>
+      )}
     </View>
   );
 }
